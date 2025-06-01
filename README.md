@@ -20,12 +20,12 @@ To understand the problem, let us suppose we have a Sales cube with a Product di
 
 Initially, I thought the Market Basket Analysis would be easy to create by placing the Product dimension on both rows and columns. Here is the MDX:
 
-`
+```SQL
 SELECT 
     [Products].[Products].Members on Rows,
     [Products].[Products].Members on Columns
     FROM [Sales]
-`
+```
 
 However, the statement above will return an error:
 
@@ -35,12 +35,12 @@ The Products hierarchy already appears in the Axis0 axis.
 
 The next apparent solution to this problem is to add a duplicate cube dimension (Products 2) to the Sales cube. Here is the MDX:
 
-`
+```SQL
 SELECT 
     [Products].[Products].Members on Rows,
     [Products 2].[Products].Members on Columns
     FROM [Sales]
-`
+```
 
 However, this MDX returns the following result set:
 
